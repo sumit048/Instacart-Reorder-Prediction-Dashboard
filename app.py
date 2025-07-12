@@ -169,7 +169,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ------------------ LOAD TRAINED MODEL ------------------
-model_url = "https://drive.google.com/uc?export=download&id=1TEF8IUpwmZeIpz0IjzcIlHv96mw7sLZq"
+model_url = "https://drive.google.com/uc?export=download&id=1qtwMSWn6b1ZddZxvU6g8H3V2bMZ5U7rk"
 model_path = "model.joblib"
 
 # Download model only if not already downloaded
@@ -178,7 +178,7 @@ if not os.path.exists(model_path):
 
 # Load the model
 # ✅ Google Drive direct download (use the actual file ID)
-model_url = "https://drive.google.com/uc?export=download&id=1TEF8IUpwmZeIpz0IjzcIlHv96mw7sLZq"
+model_url = "https://drive.google.com/uc?export=download&id=1qtwMSWn6b1ZddZxvU6g8H3V2bMZ5U7rk"
 model_path = "model.joblib"
 
 # Download model from Drive if not exists
