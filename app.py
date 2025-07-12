@@ -6,6 +6,7 @@ import base64
 from utils.db_import import load_data_from_db
 import urllib.request
 import os
+import urllib.request
 
 # ------------------ PAGE CONFIGURATION ------------------
 st.set_page_config(page_title="Instacart Reorder Predictor", layout="wide")
@@ -176,8 +177,17 @@ if not os.path.exists(model_path):
     urllib.request.urlretrieve(model_url, model_path)
 
 # Load the model
+# ✅ Google Drive direct download (use the actual file ID)
+model_url = "https://drive.google.com/uc?export=download&id=1TEF8IUpwmZeIpz0IjzcIlHv96mw7sLZq"
+model_path = "model.joblib"
+
+# Download model from Drive if not exists
+if not os.path.exists(model_path):
+    urllib.request.urlretrieve(model_url, model_path)
+
+# Load model
 model = joblib.load(model_path)
-st.success("✅ Model loaded successfully!")
+
 
 # ------------------ SETUP PAGE STATE ------------------
 if "page" not in st.session_state:
