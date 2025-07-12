@@ -171,17 +171,16 @@ st.markdown(f"""
 # ------------------ LOAD TRAINED MODEL ------------------
 import urllib.request
 
-model_url = "https://drive.google.com/uc?export=download&id=1rguNHbhRy7iQI26ZCT1OBYsmpV7ircBt"
+model_url = "https://drive.google.com/uc?export=download&id=1x3CONYT1A_UZ2IAq0_6Zx_YnqBTkMFGA"
 model_path = "model.joblib"
 
-# ✅ Download if not already present
+# ✅ Download model if not exists
 if not os.path.exists(model_path):
     urllib.request.urlretrieve(model_url, model_path)
 
 # ✅ Load model
 model = joblib.load(model_path)
-
-
+ 
 # ------------------ SETUP PAGE STATE ------------------
 if "page" not in st.session_state:
     st.session_state.page = "single"
