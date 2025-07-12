@@ -4,6 +4,8 @@ import numpy as np
 import joblib
 import base64
 from utils.db_import import load_data_from_db
+import urllib.request
+import os
 
 # ------------------ PAGE CONFIGURATION ------------------
 st.set_page_config(page_title="Instacart Reorder Predictor", layout="wide")
@@ -166,14 +168,16 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ------------------ LOAD TRAINED MODEL ------------------
-uploaded_model = st.file_uploader("Upload your model (.joblib)", type=["joblib"])
+model_url = "https://drive.google.com/uc?export=download&id=1TEF8IUpwmZeIpz0IjzcIlHv96mw7sLZq"
+model_path = "model.joblib"
 
-if uploaded_model is not None:
-    model = joblib.load(uploaded_model)
-    st.success("✅ Model loaded successfully!")
-else:
-    st.warning("⚠️ Please upload your trained model file (model.joblib) to proceed.")
-    st.stop()
+# Download model only if not already downloaded
+if not os.path.exists(model_path):
+    urllib.request.urlretrieve(model_url, model_path)
+
+# Load the model
+model = joblib.load(model_path)
+st.success("✅ Model loaded successfully!")
 
 # ------------------ SETUP PAGE STATE ------------------
 if "page" not in st.session_state:
