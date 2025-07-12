@@ -1,0 +1,30 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.env/
+
+# VS Code config
+.vscode/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Dataset files
+*.csv
+*.db
+*.sqlite
+*.h5
+
+# Model artifacts
+*.joblib
+*.pkl
+
+# Logs
+*.log
+
+# OS system files
+.DS_Store
+Thumbs.db
