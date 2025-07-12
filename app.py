@@ -166,7 +166,14 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ------------------ LOAD TRAINED MODEL ------------------
-model = joblib.load("model.joblib")
+uploaded_model = st.file_uploader("Upload your model (.joblib)", type=["joblib"])
+
+if uploaded_model is not None:
+    model = joblib.load(uploaded_model)
+    st.success("✅ Model loaded successfully!")
+else:
+    st.warning("⚠️ Please upload your trained model file (model.joblib) to proceed.")
+    st.stop()
 
 # ------------------ SETUP PAGE STATE ------------------
 if "page" not in st.session_state:
