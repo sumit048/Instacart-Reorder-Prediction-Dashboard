@@ -171,7 +171,7 @@ st.markdown(f"""
 # ------------------ LOAD TRAINED MODEL ------------------
 import urllib.request
 
-model_url = "https://drive.google.com/uc?export=download&id=1MzXK-iczzOOddmX7CVQyLIhdm0lkPK2r"
+model_url = "https://drive.google.com/uc?export=download&id=1rguNHbhRy7iQI26ZCT1OBYsmpV7ircBt"
 model_path = "model.joblib"
 
 # ✅ Download if not already present
